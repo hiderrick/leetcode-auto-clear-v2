@@ -1,19 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeetCode Auto Reset</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 320px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 280px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 13px;
+            color: #718096;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .toggle-container {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-container:hover {
+            border-color: #cbd5e0;
+            background: #edf2f7;
+        }
+        
+        .toggle-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .toggle-label {
+            font-size: 15px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 28px;
+            background: #cbd5e0;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+        
+        .toggle-switch.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+        
+        .description {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.5;
+            margin-top: 12px;
+        }
+        
+        .status {
+            font-size: 12px;
+            color: #667eea;
+            text-align: center;
+            margin-top: 16px;
+            font-weight: 600;
+            padding: 8px 12px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .status.inactive {
+            color: #a0aec0;
+            background: rgba(160, 174, 192, 0.1);
+            border-color: rgba(160, 174, 192, 0.2);
+        }
+        
+        .features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .feature-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            color: #667eea;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
-<body class="pt-3 mb-2 bg-dark text-white container" style="width: 300px;">
-	<div class="row justify-content-center">
-			<h5>LeetCode Auto Reset Settings</h5>
-	</div>
-	<div class="form-check form-switch mb-3">
-		<input type="checkbox" class="form-check-input" id="autoResetSetting">
-		<label class="form-check-label" for="autoResetSetting">Enable Auto Reset</label>
-	</div>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">⚡</div>
+            <div class="title">LeetCode Auto Reset</div>
+            <div class="subtitle">Smart code reset automation</div>
+        </div>
+        
+        <div class="toggle-container">
+            <div class="toggle-header">
+                <div class="toggle-label">Enable Auto Reset</div>
+                <div class="toggle-switch" id="toggleSwitch"></div>
+            </div>
+            
+            <div class="description">
+                Automatically resets your code to the default template when loading new LeetCode problems. 
+                Saves time and ensures a clean starting point for each solution.
+            </div>
+        </div>
+        
+        <div class="status" id="status">Extension is ready</div>
+        
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                Instant code reset on problem load
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                Works with all LeetCode problems
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                Non-intrusive operation
+            </div>
+        </div>
+    </div>
+    
     <script src="popup.js"></script>
 </body>
-</html>
+</html> 
