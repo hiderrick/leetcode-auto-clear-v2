@@ -13,7 +13,7 @@
             width: 320px;
             padding: 20px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(228,113,39,255) 0%, rgba(228,113,39,0.8) 100%);
             color: #333;
             min-height: 280px;
         }
@@ -36,7 +36,7 @@
         .logo {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, rgba(228,113,39,255), rgba(228,113,39,0.8));
             border-radius: 12px;
             margin: 0 auto 12px;
             display: flex;
@@ -102,8 +102,8 @@
         }
         
         .toggle-switch.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, rgba(228,113,39,255), rgba(228,113,39,0.8));
+            box-shadow: 0 2px 8px rgba(228, 113, 39, 0.4);
         }
         
         .toggle-switch::after {
@@ -132,14 +132,14 @@
         
         .status {
             font-size: 12px;
-            color: #667eea;
+            color: rgba(228,113,39,255);
             text-align: center;
             margin-top: 16px;
             font-weight: 600;
             padding: 8px 12px;
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(228, 113, 39, 0.1);
             border-radius: 8px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(228, 113, 39, 0.2);
         }
         
         .status.inactive {
@@ -166,7 +166,7 @@
             width: 16px;
             height: 16px;
             margin-right: 8px;
-            color: #667eea;
+            color: rgba(228,113,39,255);
         }
         
         .hidden {
@@ -179,7 +179,6 @@
         <div class="header">
             <div class="logo">⚡</div>
             <div class="title">LeetCode Auto Reset</div>
-            <div class="subtitle">Smart code reset automation</div>
         </div>
         
         <div class="toggle-container">
@@ -189,8 +188,7 @@
             </div>
             
             <div class="description">
-                Automatically resets your code to the default template when loading new LeetCode problems. 
-                Saves time and ensures a clean starting point for each solution.
+                Automatically resets code on LeetCode to avoid accidental spoilers when revisiting old problems
             </div>
         </div>
         
@@ -205,10 +203,7 @@
                 <span class="feature-icon">✓</span>
                 Works with all LeetCode problems
             </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                Non-intrusive operation
-            </div>
+
         </div>
     </div>
     
