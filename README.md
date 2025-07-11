@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/65a79693-3045-40a0-b29f-52af52d29413
 
 ### Option 1: Clone and load
 1. Clone this repository
-`https://github.com/hiderrick/leetcode-auto-clear-v2.git`
+`https://github.com/hiderrick/leetcode-auto-reset.git`
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" (toggle in top right)
 4. Click "Load unpacked" and select the extension folder
