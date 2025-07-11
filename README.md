@@ -2,6 +2,8 @@
 
 A Chrome extension that automatically resets your code when loading LeetCode problems to avoid accidental spoilers when revisiting old problems.
 
+https://chromewebstore.google.com/detail/lmnpkiiobppjfkomnpkcbijnjphelhkk?utm_source=item-share-cb
+
 ## Demo
 
 
